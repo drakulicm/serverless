@@ -1,11 +1,12 @@
 // api/metaTags.js
 
 export default async function handler(req: Request, res) {
+  const url = req.url;
   const metaTags = `
-    <meta name="description" content="asdasdasd">
-    <meta property="og:title" content="asdasdasd">
+    <meta name="description" content="${url}">
+    <meta property="og:title" content="${url}">
   `;
-  console.log("here we are");
+
   const htmlResponse = await fetch("https://serverless.markodrakulic.dev");
   const htmlBody = await htmlResponse.text();
 
