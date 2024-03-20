@@ -19,6 +19,9 @@ const getMetadata = (pathname: string) => {};
 
 const getIndexHtml = () => {
   const filePath = path.join(process.cwd(), "index.html");
+  console.log("🚀 ~ getIndexHtml ~ process.cwd():", process.cwd());
+  console.log("🚀 ~ getIndexHtml ~ filePath:", filePath);
   const file = fs.readFileSync(filePath);
+  console.log("🚀 ~ getIndexHtml ~ file:", file);
   return file;
 };
