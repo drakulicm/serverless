@@ -4,10 +4,6 @@
     {
       "source": "/:path*",
       "destination": "/api/hello"
-    },
-    {
-      "source": "/",
-      "destination": "/api/hello"
     }
   ],
   "functions": {
