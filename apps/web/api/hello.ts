@@ -1,25 +1,19 @@
-import fs from "fs";
-import path from "path";
+// api/metaTags.js
 
-export function GET(request: Request) {
-  const indexHTML = getIndexHtml();
-  return new Response(indexHTML, {
-    headers: {
-      "content-type": "text/html",
-    },
-  });
-  const mockJson = {
-    pathname: new URL(request.url).pathname,
-  };
-  return new Response(JSON.stringify(mockJson));
+export default async function handler(req: Request, res: Response) {
+  const pathname = new URL(req.url).pathname;
+  const metaTags = `
+    <meta name="description" content="${pathname}">
+    <meta property="og:title" content="${pathname}">
+  `;
+
+  // Fetch the original HTML content of your app
+  const htmlResponse = await fetch("http://serverless.markodrakulic.dev");
+  const htmlBody = await htmlResponse.text();
+
+  // Append meta tags to the HTML response
+  const modifiedHtmlBody = htmlBody.replace("</head>", `${metaTags}</head>`);
+
+  res.setHeader("Content-Type", "text/html");
+  res.send(modifiedHtmlBody);
 }
-
-const getMetadata = (pathname: string) => {};
-
-const getIndexHtml = () => {
-  const filePath = path.join(process.cwd(), "");
-  const files = fs.readdirSync(filePath);
-  console.log("🚀 ~ getIndexHtml ~ files:", files);
-  const file = fs.readFileSync(filePath);
-  return file;
-};
