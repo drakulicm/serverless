@@ -5,7 +5,7 @@ export default async function handler(req: Request, res) {
     <meta name="description" content="asdasdasd">
     <meta property="og:title" content="asdasdasd">
   `;
-
+  console.log("here we are");
   const htmlResponse = await fetch("https://serverless.markodrakulic.dev");
   const htmlBody = await htmlResponse.text();
 
