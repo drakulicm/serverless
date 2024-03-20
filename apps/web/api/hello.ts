@@ -18,7 +18,7 @@ export function GET(request: Request) {
 const getMetadata = (pathname: string) => {};
 
 const getIndexHtml = () => {
-  const filePath = path.join(process.cwd(), "/___vc");
+  const filePath = path.join(process.cwd(), "/.vercel/output");
   // list all files in the directory
   fs.readdirSync(filePath).forEach((file) => {
     console.log("file", file);
