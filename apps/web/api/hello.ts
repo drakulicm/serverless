@@ -1,12 +1,24 @@
+import fs from "fs";
+import path from "path";
+
 export function GET(request: Request) {
-  const mockJson = {
-    data: {
-      id: "hello",
-      type: "hello",
-      attributes: {
-        message: "Hello from Serverless Functions",
-      },
+  console.log("🚀 ~ GET ~ request:", request);
+  const indexHTML = getIndexHtml();
+  return new Response(indexHTML, {
+    headers: {
+      "content-type": "text/html",
     },
+  });
+  const mockJson = {
+    pathname: new URL(request.url).pathname,
   };
   return new Response(JSON.stringify(mockJson));
 }
+
+const getMetadata = (pathname: string) => {};
+
+const getIndexHtml = () => {
+  const filePath = path.join(process.cwd(), "index.html");
+  const file = fs.readFileSync(filePath);
+  return file;
+};
