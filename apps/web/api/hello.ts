@@ -18,9 +18,9 @@ export function GET(request: Request) {
 const getMetadata = (pathname: string) => {};
 
 const getIndexHtml = () => {
-  const filePath = path.join(process.cwd(), "index.html");
+  const filePath = path.join(process.cwd(), "/apps");
   // list all files in the directory
-  fs.readdirSync(process.cwd()).forEach((file) => {
+  fs.readdirSync(filePath).forEach((file) => {
     console.log("file", file);
   });
   const file = fs.readFileSync(filePath);
