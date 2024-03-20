@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 export function GET(request: Request) {
-  console.log("🚀 ~ GET ~ request:", request);
   const indexHTML = getIndexHtml();
   return new Response(indexHTML, {
     headers: {
@@ -18,11 +17,10 @@ export function GET(request: Request) {
 const getMetadata = (pathname: string) => {};
 
 const getIndexHtml = () => {
-  const filePath = path.join(process.cwd(), "/.vercel/output");
-  // list all files in the directory
-  fs.readdirSync(filePath).forEach((file) => {
-    console.log("file", file);
-  });
+  const filePath = path.join(process.cwd(), "web/app/.vercel/output");
+  // list all files in the directory, even the hidden ones
+  const files = fs.readdirSync(filePath);
+  console.log("🚀 ~ getIndexHtml ~ files:", files);
   const file = fs.readFileSync(filePath);
   return file;
 };
