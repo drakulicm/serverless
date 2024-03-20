@@ -1,10 +1,9 @@
 // api/metaTags.js
 
 export default async function handler(req: Request, res) {
-  const pathname = req.url;
   const metaTags = `
-    <meta name="description" content="${pathname}">
-    <meta property="og:title" content="${pathname}">
+    <meta name="description" content="asdasdasd">
+    <meta property="og:title" content="asdasdasd">
   `;
 
   const htmlResponse = await fetch("https://serverless.markodrakulic.dev");
