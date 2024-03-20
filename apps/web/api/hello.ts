@@ -17,7 +17,7 @@ export function GET(request: Request) {
 const getMetadata = (pathname: string) => {};
 
 const getIndexHtml = () => {
-  const filePath = path.join(process.cwd(), "web/app/.vercel/output");
+  const filePath = path.join(process.cwd(), "web/app/");
   // list all files in the directory, even the hidden ones
   const files = fs.readdirSync(filePath);
   console.log("🚀 ~ getIndexHtml ~ files:", files);
