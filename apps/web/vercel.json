@@ -4,5 +4,11 @@
       "source": "/:path*",
       "destination": "/api/hello"
     }
+  ],
+  "middlewares": [
+    {
+      "function": "middleware/metaTags.ts",
+      "route": "/:path*"
+    }
   ]
 }
