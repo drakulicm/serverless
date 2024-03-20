@@ -1,14 +1,9 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/:path*",
       "destination": "/api/hello"
-    }
-  ],
-  "middlewares": [
-    {
-      "function": "middleware/metaTags.ts",
-      "route": "/:path*"
     }
   ]
 }

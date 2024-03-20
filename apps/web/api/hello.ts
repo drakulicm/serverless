@@ -1,6 +1,6 @@
 // api/metaTags.js
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: Request, res) {
   const pathname = new URL(req.url).pathname;
   const metaTags = `
     <meta name="description" content="${pathname}">
