@@ -1,8 +1,14 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/:path*",
       "destination": "/api/hello"
     }
-  ]
+  ],
+  "functions": {
+    "api/hello.ts": {
+      "memory": 128
+    }
+  }
 }
